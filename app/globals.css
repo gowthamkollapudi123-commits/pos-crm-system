@@ -24,3 +24,57 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Print styles for PDF export - Requirement 12.8 */
+@media print {
+  /* Hide navigation, buttons, and non-report UI */
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure report content fills the page */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  /* Remove shadows and borders that don't print well */
+  .shadow,
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  /* Avoid page breaks inside cards and tables */
+  .bg-white,
+  table,
+  tr {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure charts are visible */
+  .recharts-wrapper,
+  .recharts-surface {
+    page-break-inside: avoid;
+  }
+
+  /* Full width layout for print */
+  .max-w-7xl {
+    max-width: 100% !important;
+  }
+
+  /* Remove background colors from metric cards for cleaner print */
+  .bg-blue-50,
+  .bg-green-50,
+  .bg-yellow-50,
+  .bg-red-50,
+  .bg-purple-50,
+  .bg-orange-50 {
+    background-color: #f9fafb !important;
+  }
+}
