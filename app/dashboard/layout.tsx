@@ -4,6 +4,8 @@
  * Protected layout that wraps all dashboard routes with authentication.
  */
 
+'use client';
+
 import { ProtectedRoute } from '@/components/auth';
 import { AppNavigation } from '@/components/layout/AppNavigation';
 import { useAuth } from '@/hooks/useAuth';
